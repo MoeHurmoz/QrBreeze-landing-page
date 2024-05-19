@@ -15,7 +15,8 @@
   --main-footer-padding: 70px 0;
 
   --btn-padding: 15px 20px;
-  --btn-margin: 0 5px;
+  --btn-wide-padding-inline: 50px;
+  --btn-margin: 10px;
 }
 
 * {
@@ -39,10 +40,13 @@ a {
   display: flex;
 }
 
+.btn-container > :first-child {
+  margin-inline-end: var(--btn-margin);
+}
+
 .btn,
 .btn-with-bg {
   padding: var(--btn-padding);
-  margin: var(--btn-margin);
   border: 3px solid var(--second-color);
   border-radius: 23px;
   font-weight: 600;
@@ -51,6 +55,10 @@ a {
 
 .btn-with-bg {
   background-color: var(--third-color);
+}
+
+.btn-wide {
+  padding-inline: var(--btn-wide-padding-inline);
 }
 
 /* ====[ MAIN HEADER ]==== */
@@ -141,4 +149,90 @@ a {
   font-weight: 700;
 }
 
-/* ====[  ]==== */
+/* ====[ FIRST SECTION ]==== */
+.first-section {
+  display: grid;
+  grid-template-rows: 630px 420px;
+}
+
+.first-section > figure {
+  display: grid;
+  grid-template-areas: ". figcaption img .";
+  grid-template-columns:
+    var(--R-L-page-padding)
+    repeat(2, 1fr)
+    var(--R-L-page-padding);
+  grid-template-rows: 530px;
+  padding: 50px 0;
+}
+
+.first-section > figure > .qr-img {
+  grid-area: img;
+  width: 100%;
+  height: 100%;
+}
+
+.first-section > figure > figcaption {
+  grid-area: figcaption;
+}
+
+.first-section > figure > figcaption > h1 {
+  font-size: 2.5rem;
+  font-weight: 900;
+  margin-top: 50px;
+}
+
+.first-section > figure > figcaption > h1 > span {
+  color: var(--third-color);
+}
+
+.first-section > figure > figcaption > p {
+  font-weight: 500;
+  margin: 20px 0 35px;
+}
+
+.first-section > footer {
+  color: var(--first-color);
+  background-color: var(--second-color);
+  font-weight: 500;
+  display: grid;
+  grid-template-areas: ". h2 h2 h2 h2 ." ". a1 a2 a3 a4 .";
+  grid-template-columns:
+    var(--R-L-page-padding)
+    repeat(4, 1fr)
+    var(--R-L-page-padding);
+  padding: 30px 0 100px;
+}
+
+.first-section > footer > h2 {
+  grid-area: h2;
+  font-size: 1.6rem;
+  display: flex;
+  justify-content: center;
+  padding: 35px 0 70px;
+}
+
+.first-section > footer > .advantages {
+  text-align: center;
+  padding: 0 25px;
+}
+
+.first-section > footer > .advantages > p {
+  margin-top: 10px;
+}
+
+.first-section > footer > .adv-one {
+  grid-area: a1;
+}
+
+.first-section > footer > .adv-two {
+  grid-area: a2;
+}
+
+.first-section > footer > .adv-three {
+  grid-area: a3;
+}
+
+.first-section > footer > .adv-four {
+  grid-area: a4;
+}
