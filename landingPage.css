@@ -85,7 +85,8 @@ a {
 }
 
 .main-header > .logo .logo-icon {
-  margin-inline-end: 10px;
+  margin-inline-end: 5px;
+  width: 60px;
 }
 
 .main-header > .logo::after {
@@ -151,8 +152,10 @@ a {
 
 /* ====[ FIRST SECTION ]==== */
 .first-section {
+  background-color: var(--first-color);
+  height: 1000px;
   display: grid;
-  grid-template-rows: 630px 420px;
+  grid-template-rows: 2fr 1fr;
 }
 
 .first-section > figure {
@@ -201,7 +204,7 @@ a {
     var(--R-L-page-padding)
     repeat(4, 1fr)
     var(--R-L-page-padding);
-  padding: 30px 0 100px;
+  padding: 30px 0 70px;
 }
 
 .first-section > footer > h2 {
