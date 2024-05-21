@@ -1,3 +1,4 @@
+/* Fonts used */
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
 
 :root {
@@ -17,6 +18,7 @@
   --btn-padding: 15px 20px;
   --btn-wide-padding-inline: 50px;
   --btn-margin: 10px;
+  --btn-border-width: 3px;
 }
 
 * {
@@ -47,7 +49,7 @@ a {
 .btn,
 .btn-with-bg {
   padding: var(--btn-padding);
-  border: 3px solid var(--second-color);
+  border: var(--btn-border-width) solid var(--second-color);
   border-radius: 23px;
   font-weight: 600;
   line-height: 30px;
@@ -153,9 +155,9 @@ a {
 /* ====[ FIRST SECTION ]==== */
 .first-section {
   background-color: var(--first-color);
-  height: 1000px;
+  height: 1050px;
   display: grid;
-  grid-template-rows: 2fr 1fr;
+  grid-template-rows: 1.5fr 1fr;
 }
 
 .first-section > figure {
@@ -238,4 +240,102 @@ a {
 
 .first-section > footer > .adv-four {
   grid-area: a4;
+}
+
+/* ====[ FAQ SECTION ]==== */
+#faq-section {
+  color: var(--third-color);
+  background-color: var(--first-color);
+  display: grid;
+  grid-template-areas: ". faq-container faq-img .";
+  grid-template-columns:
+    var(--R-L-page-padding)
+    2fr
+    1.6fr
+    var(--R-L-page-padding);
+  padding: 100px 0;
+}
+
+#faq-section > .faq-img {
+  grid-area: faq-img;
+  width: 100%;
+  height: 350px;
+  transform: translateY(50%);
+}
+
+#faq-section > .faq-container {
+  grid-area: faq-container;
+  padding-inline-end: 80px;
+  font-size: 0.8rem;
+}
+
+#faq-section > .faq-container > h2 {
+  font-size: 3rem;
+}
+
+#faq-section > .faq-container > h2::after {
+  content: "";
+  background: url("./assets/question.png") no-repeat;
+  background-size: contain;
+  width: 115px;
+  height: 115px;
+  position: absolute;
+  transform: rotate(20deg) translate(35%, -25%);
+}
+
+#faq-section > .faq-container .faq {
+  margin-block: 20px;
+}
+
+#faq-section > .faq-container .faq > details {
+  color: #000;
+  border-color: var(--third-color);
+  margin-bottom: 10px;
+}
+
+#faq-section > .faq-container .faq > details > summary {
+  list-style: none;
+  cursor: pointer;
+  position: relative;
+}
+
+#faq-section > .faq-container .faq > details[open] > summary {
+  border-bottom: var(--btn-border-width) solid var(--third-color);
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+#faq-section > .faq-container .faq > details > summary::after {
+  content: "";
+  width: 16px;
+  height: 16px;
+  border: var(--btn-border-width) solid;
+  border-top: none;
+  border-right: none;
+  transform: rotate(315deg);
+  position: absolute;
+  right: 10px;
+  transition: 300ms linear;
+}
+
+#faq-section > .faq-container .faq > details[open] > summary::after {
+  transform: rotate(135deg);
+  top: 11px;
+}
+
+#faq-section > .faq-container > a {
+  font-weight: 500;
+  position: relative;
+}
+
+#faq-section > .faq-container > a::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border: 2px solid;
+  border-left: none;
+  border-bottom: none;
+  transform: rotate(45deg);
+  position: absolute;
+  top: 6px;
 }
