@@ -28,7 +28,6 @@
 }
 
 body {
-  min-height: 100vh;
   color: var(--second-color);
   font-family: "Roboto", sans-serif;
 }
@@ -212,34 +211,88 @@ a {
 .first-section > footer > h2 {
   grid-area: h2;
   font-size: 1.6rem;
-  display: flex;
-  justify-content: center;
+  text-align: center;
   padding: 35px 0 70px;
 }
 
-.first-section > footer > .advantages {
+.first-section > footer > .advantage:nth-of-type(1) {
+  grid-area: a1;
+}
+
+.first-section > footer > .advantage:nth-of-type(2) {
+  grid-area: a2;
+}
+
+.first-section > footer > .advantage:nth-of-type(3) {
+  grid-area: a3;
+}
+
+.first-section > footer > .advantage:nth-of-type(4) {
+  grid-area: a4;
+}
+
+.first-section > footer > .advantage {
   text-align: center;
   padding: 0 25px;
 }
 
-.first-section > footer > .advantages > p {
+.first-section > footer > .advantage > p {
   margin-top: 10px;
 }
 
-.first-section > footer > .adv-one {
-  grid-area: a1;
+/* ====[ STATISTICS SECTION ]==== */
+.statistics-section {
+  color: var(--first-color);
+  background-color: var(--second-color);
+  display: grid;
+  grid-template-areas: ". title title title ." ". card-1 card-2 card-3 .";
+  grid-template-columns:
+    var(--R-L-page-padding)
+    repeat(3, 1fr)
+    var(--R-L-page-padding);
+  padding-block: 80px 300px;
+  font-weight: 900;
 }
 
-.first-section > footer > .adv-two {
-  grid-area: a2;
+.statistics-section > h2 {
+  grid-area: title;
+  text-align: center;
+  font-size: 3.2rem;
+  margin-bottom: 30px;
 }
 
-.first-section > footer > .adv-three {
-  grid-area: a3;
+.statistics-section .statistic-card:nth-of-type(1) {
+  grid-area: card-1;
 }
 
-.first-section > footer > .adv-four {
-  grid-area: a4;
+.statistics-section .statistic-card:nth-of-type(2) {
+  grid-area: card-2;
+  justify-self: center;
+}
+
+.statistics-section .statistic-card:nth-of-type(3) {
+  grid-area: card-3;
+  justify-self: end;
+}
+
+.statistics-section .statistic-card {
+  background-color: #000074;
+  text-align: center;
+  padding-top: 10px;
+  border-radius: 40px;
+  height: 330px;
+  width: 385px;
+  font-size: 1.3rem;
+}
+
+.statistics-section .statistic-icon {
+  width: 110px;
+  margin-bottom: 25px;
+}
+
+.statistics-section .statistic-number {
+  font-size: 1.4rem;
+  margin-bottom: 30px;
 }
 
 /* ====[ FAQ SECTION ]==== */
@@ -256,24 +309,24 @@ a {
   padding: 100px 0;
 }
 
-#faq-section > .faq-img {
+#faq-section .faq-img {
   grid-area: faq-img;
   width: 100%;
   height: 350px;
   transform: translateY(50%);
 }
 
-#faq-section > .faq-container {
+#faq-section .faq-container {
   grid-area: faq-container;
   padding-inline-end: 80px;
   font-size: 0.8rem;
 }
 
-#faq-section > .faq-container > h2 {
+#faq-section .faq-container > h2 {
   font-size: 3rem;
 }
 
-#faq-section > .faq-container > h2::after {
+#faq-section .faq-container > h2::after {
   content: "";
   background: url("./assets/question.png") no-repeat;
   background-size: contain;
@@ -283,29 +336,29 @@ a {
   transform: rotate(20deg) translate(35%, -25%);
 }
 
-#faq-section > .faq-container .faq {
+#faq-section .faq-container .faq {
   margin-block: 20px;
 }
 
-#faq-section > .faq-container .faq > details {
+#faq-section .faq-container .faq > details {
   color: #000;
   border-color: var(--third-color);
   margin-bottom: 10px;
 }
 
-#faq-section > .faq-container .faq > details > summary {
+#faq-section .faq-container .faq > details > summary {
   list-style: none;
   cursor: pointer;
   position: relative;
 }
 
-#faq-section > .faq-container .faq > details[open] > summary {
+#faq-section .faq-container .faq > details[open] > summary {
   border-bottom: var(--btn-border-width) solid var(--third-color);
   padding-bottom: 10px;
   margin-bottom: 10px;
 }
 
-#faq-section > .faq-container .faq > details > summary::after {
+#faq-section .faq-container .faq > details > summary::after {
   content: "";
   width: 16px;
   height: 16px;
@@ -318,17 +371,17 @@ a {
   transition: 300ms linear;
 }
 
-#faq-section > .faq-container .faq > details[open] > summary::after {
+#faq-section .faq-container .faq > details[open] > summary::after {
   transform: rotate(135deg);
   top: 11px;
 }
 
-#faq-section > .faq-container > a {
+#faq-section .faq-container > a {
   font-weight: 500;
   position: relative;
 }
 
-#faq-section > .faq-container > a::after {
+#faq-section .faq-container > a::after {
   content: "";
   width: 10px;
   height: 10px;
