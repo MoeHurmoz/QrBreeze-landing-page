@@ -240,6 +240,107 @@ a {
   margin-top: 10px;
 }
 
+/* ====[ TRUSTED BY SECTION ]==== */
+.trusted-by-section {
+  background-color: var(--first-color);
+  padding-inline: 50px;
+  margin-bottom: 80px;
+}
+
+.trusted-by-section > h2 {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.trusted-by-section > h2::after {
+  content: "";
+  background: url("./assets/trusted.png") no-repeat;
+  background-size: contain;
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  transform: translate(25%, 15%);
+}
+
+.trusted-by-section .logos {
+  border: 2.5px solid #000;
+  border-radius: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  min-height: 250px;
+}
+
+.trusted-by-section .logos > img {
+  width: 180px;
+}
+
+/* ====[ USE CASES SECTION ]==== */
+#use-cases-section {
+  background-color: var(--first-color);
+  padding-block: 70px 100px;
+}
+
+#use-cases-section h2,
+#use-cases-section h3 {
+  font-size: 2.8rem;
+  font-weight: 900;
+}
+
+#use-cases-section > h2 {
+  text-align: center;
+  margin-bottom: 90px;
+}
+
+#use-cases-section > h2::after {
+  content: "";
+  background: url("./assets/i.png") no-repeat;
+  background-size: contain;
+  width: 135px;
+  height: 135px;
+  position: absolute;
+  transform: rotate(20deg) translate(5%, -15%);
+}
+
+#use-cases-section .use-case {
+  display: grid;
+  grid-template-areas: ". img figcaption .";
+  grid-template-columns:
+    var(--R-L-page-padding)
+    repeat(2, 1fr)
+    var(--R-L-page-padding);
+  align-items: center;
+  justify-items: center;
+  margin-bottom: 35px;
+}
+
+.img-in-right {
+  grid-template-areas: ". figcaption img ." !important;
+}
+
+#use-cases-section .use-case > img {
+  grid-area: img;
+}
+
+#use-cases-section .use-case > figcaption {
+  grid-area: figcaption;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+#use-cases-section .use-case > figcaption > h3 {
+  color: var(--third-color);
+}
+
+#use-cases-section .use-case > figcaption > p {
+  margin-block: 15px 20px;
+}
+
+#use-cases-section .use-case > figcaption > ul > li {
+  list-style: inside url("./assets/square-check.png");
+  margin-bottom: 5px;
+}
+
 /* ====[ STATISTICS SECTION ]==== */
 .statistics-section {
   color: var(--first-color);
