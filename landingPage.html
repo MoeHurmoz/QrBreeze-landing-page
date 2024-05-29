@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>QrBreeze</title>
-    <link rel="stylesheet" href="landingPage.css" />
+    <link rel="stylesheet" href="./landingPage.css" />
     <!-- ====[ FONT AWESOME LIBRARY FOR ICONS ]==== -->
     <link
       rel="stylesheet"
@@ -13,6 +13,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <script defer src="./landingPage.js"></script>
   </head>
 
   <body>
@@ -54,7 +55,7 @@
               Need QR?<br />
               Let's get your<br />
               free dynamic QR<br />
-              for <span>Business</span>
+              for <span id="variable-text"></span>
             </h1>
             <p>
               QR codes for quick and efficient access to<br />
@@ -62,7 +63,7 @@
             </p>
             <div class="btn-container">
               <a href="#" class="btn btn-wide">Get started- it's free</a>
-              <a href="#" class="btn-with-bg">Choose QR type</a>
+              <a href="#qr-types-section" class="btn-with-bg">Choose QR type</a>
             </div>
           </figcaption>
         </figure>
@@ -103,7 +104,7 @@
         </footer>
       </section>
 
-      <section class="qr-types-section">
+      <section id="qr-types-section">
         <header>
           <div class="static-qr">
             <h2>
@@ -479,6 +480,7 @@
       <section class="statistics-section">
         <h2>QrBreeze in numbers</h2>
         <div class="statistic-card">
+          <div class="card-overlay"></div>
           <img
             class="statistic-img"
             src="./assets/locations.png"
@@ -488,6 +490,7 @@
           <p>Countries</p>
         </div>
         <div class="statistic-card">
+          <div class="card-overlay"></div>
           <img
             class="statistic-img"
             src="./assets/clients.png"
@@ -497,6 +500,7 @@
           <p>Clients</p>
         </div>
         <div class="statistic-card">
+          <div class="card-overlay"></div>
           <img class="statistic-img" src="./assets/qr.png" alt="FAQ-image" />
           <p class="statistic-number">9547+</p>
           <p>Generated QRs</p>
