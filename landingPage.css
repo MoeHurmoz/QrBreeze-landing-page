@@ -687,11 +687,12 @@ a {
 
 #faq-section .img-container {
   grid-area: img-container;
-  align-items: center;
+  align-items: flex-start;
 }
 
 #faq-section .faq-img {
   width: 100%;
+  margin-top: 1.5vw;
 }
 
 #faq-section .faq-container {
@@ -724,10 +725,15 @@ a {
   margin-bottom: 0.64516vw;
 }
 
+::-webkit-details-marker {
+  display: none;
+}
+
 #faq-section .faq-container .faq > details > summary {
   list-style: none;
   cursor: pointer;
   position: relative;
+  user-select: none;
 }
 
 #faq-section .faq-container .faq > details[open] > summary {
