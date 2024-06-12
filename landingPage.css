@@ -19,7 +19,7 @@
   --btn-padding: 0.9677vw 1.29vw;
   --btn-wide-padding-inline: 3.226vw;
   --btn-margin: 0.64516vw;
-  --btn-border-width: 0.193548vw;
+  --btn-border-width: 0.195vw;
 }
 
 * {
@@ -71,7 +71,7 @@ a {
 }
 
 /* ====[ MAIN HEADER ]==== */
-.main-header {
+#main-header {
   padding: var(--main-header-padding);
   display: grid;
   grid-template-areas: ". logo nav .";
@@ -82,22 +82,22 @@ a {
   align-items: center;
 }
 
-.main-header > .logo {
+#main-header > .logo {
   grid-area: logo;
 }
 
-.main-header > .logo a {
+#main-header > .logo a {
   display: flex;
   align-items: center;
   width: fit-content;
 }
 
-.main-header > .logo .logo-icon {
+#main-header > .logo .logo-icon {
   margin-inline-end: 0.3226vw;
   width: 3.8709vw;
 }
 
-.main-header > .logo::after {
+#main-header > .logo::after {
   content: "by BLENKOR";
   font-size: 0.5rem;
   font-weight: 900;
@@ -106,7 +106,11 @@ a {
   letter-spacing: 0.07rem;
 }
 
-.main-header > nav {
+#main-header > #hamburger-btn {
+  display: none;
+}
+
+#main-header #navbar {
   grid-area: nav;
   display: flex;
   align-items: center;
@@ -206,16 +210,12 @@ a {
   color: var(--third-color);
 }
 
-.first-section > figure > figcaption > p {
+.first-section > figure > figcaption p {
   font-weight: 500;
   margin: 1.29vw 0 2.26vw;
 }
 
-.first-section
-  > figure
-  > figcaption
-  > .btn-container
-  > a:nth-of-type(2)::after {
+.first-section > figure > figcaption .btn-container > a:nth-of-type(2)::after {
   content: "";
   background: url("./assets/icons/click-here.png") no-repeat;
   background-size: contain;
@@ -262,7 +262,7 @@ a {
   grid-area: h2;
   font-size: 1.6rem;
   text-align: center;
-  padding: 2.26vw 0 4.516vw;
+  margin: 2.26vw 0 4.516vw;
 }
 
 .first-section > footer > .advantage:nth-of-type(1) {
@@ -283,7 +283,6 @@ a {
 
 .first-section > footer > .advantage {
   text-align: center;
-  padding: 0 1.61vw;
 }
 
 .first-section > footer > .advantage > p {

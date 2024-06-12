@@ -12,12 +12,18 @@
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>QrBreeze</title>
+    <!-- type="image/..." -->
+    <link
+      rel="icon"
+      href="https://images.squarespace-cdn.com/content/v1/55fc0004e4b069a519961e2d/1442590746571-RPGKIXWGOO671REUNMCB/image-asset.gif"
+    />
     <link rel="stylesheet" href="./landingPage.css" />
+    <link rel="stylesheet" href="./responsive.css" />
     <script defer src="./landingPage.js"></script>
   </head>
 
   <body>
-    <header class="main-header">
+    <header id="main-header">
       <div class="logo">
         <a href="#" title="Home page">
           <img
@@ -31,7 +37,8 @@
           </div>
         </a>
       </div>
-      <nav>
+      <i id="hamburger-btn" class="fa-solid fa-bars"></i>
+      <nav id="navbar">
         <a href="#" title="Go to pricing">Pricing</a>
         <a href="#faq-section" title="Go to frequently asked questions">FAQ</a>
         <a href="#use-cases-section" title="Go to use cases">Use Cases</a>
@@ -55,17 +62,21 @@
           <figcaption>
             <h1>
               Need QR?<br />
-              Let's get your<br />
+              Let's get your<br class="removable-tag" />
               free dynamic QR<br />
               for <span id="variable-text"></span>
             </h1>
-            <p>
-              QR codes for quick and efficient access to<br />
-              information, products, or services.
-            </p>
-            <div class="btn-container">
-              <a href="#" class="btn btn-wide">Get started- it's free</a>
-              <a href="#qr-types-section" class="btn-with-bg">Choose QR type</a>
+            <div>
+              <p>
+                QR codes for quick and efficient access to<br />
+                information, products, or services.
+              </p>
+              <div class="btn-container">
+                <a href="#" class="btn btn-wide">Get started- it's free</a>
+                <a href="#qr-types-section" class="btn-with-bg"
+                  >Choose QR type</a
+                >
+              </div>
             </div>
           </figcaption>
         </figure>
@@ -93,7 +104,10 @@
               alt="Five stars image"
               style="width: 12.903vw"
             />
-            <p>Versatility and<br />Customization</p>
+            <p>
+              Versatility and<br class="removable-tag" />
+              Customization
+            </p>
           </div>
           <div class="advantage">
             <img
@@ -101,7 +115,10 @@
               alt="Five stars image"
               style="width: 12.903vw"
             />
-            <p>Quick and<br />convenient access to Information</p>
+            <p>
+              Quick and<br class="removable-tag" />
+              convenient access to Information
+            </p>
           </div>
         </footer>
       </section>
