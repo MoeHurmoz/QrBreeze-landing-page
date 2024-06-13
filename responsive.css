@@ -4,14 +4,17 @@
   --btn-wide-padding-inline-in-md-screen: 3.5vw;
   --btn-margin-in-md-screen: 1vw;
   --btn-font-size-in-md-screen: 1.2rem;
+  --btn-border-width-in-md-screen: 0.3vw;
 
   /* Small Screen Dimensions */
   --main-header-padding-in-sm-screen: 2.9vw 0;
   --main-footer-padding-in-sm-screen: 5.806vw 0 4.516vw;
+
   --btn-padding-in-sm-screen: 2.5vw 3vw;
   --btn-wide-padding-inline-in-sm-screen: 6vw;
   --btn-margin-in-sm-screen: 3vw;
   --btn-font-size-in-sm-screen: 2.5rem;
+  --btn-border-width-in-sm-screen: 0.42vw;
 }
 
 /*  MEDIUM SCREENS  */
@@ -24,6 +27,8 @@
   .btn-with-bg {
     padding: var(--btn-padding-in-md-screen);
     font-size: var(--btn-font-size-in-md-screen);
+    border-width: var(--btn-border-width-in-md-screen);
+    border-radius: 2vw;
   }
 
   .btn-wide {
@@ -88,6 +93,63 @@
     margin-top: 1vw;
     font-size: 1.2rem;
   }
+
+  /* ====[ FAQ SECTION ]==== */
+  #faq-section {
+    grid-template-areas: ". img-container ." ". faq-container .";
+    grid-template-columns:
+      var(--R-L-page-padding)
+      1fr
+      var(--R-L-page-padding);
+    padding: 0 0 5.806vw;
+  }
+
+  #faq-section .faq-img {
+    margin-top: initial;
+    width: 55%;
+  }
+
+  #faq-section .faq-container {
+    padding-inline-end: initial;
+    font-size: 1.2rem;
+  }
+
+  #faq-section .faq-container .faq {
+    margin-block: 1.5vw;
+  }
+
+  #faq-section .faq-container .faq > details {
+    padding: 2vw 2.5vw;
+    margin-bottom: 1.3vw;
+  }
+
+  #faq-section .faq-container .faq > details[open] > summary {
+    border-width: var(--btn-border-width-in-md-screen);
+    padding-bottom: 1.3vw;
+    margin-bottom: 1.3vw;
+  }
+
+  #faq-section .faq-container .faq > details > summary::after {
+    border-width: var(--btn-border-width-in-md-screen);
+    width: 1.3vw;
+    height: 1.3vw;
+    top: -0.3vw;
+  }
+
+  #faq-section .faq-container .faq > details[open] > summary::after {
+    top: 0.5vw;
+  }
+
+  #faq-section .faq-container .faq > details > p {
+    line-height: 3vw;
+  }
+
+  #faq-section .faq-container > a::after {
+    border-width: 0.2vw;
+    width: 0.8vw;
+    height: 0.8vw;
+    top: 0.8vw;
+  }
 }
 
 /*  SMALL SCREENS  */
@@ -100,6 +162,7 @@
   .btn-with-bg {
     padding: var(--btn-padding-in-sm-screen);
     font-size: var(--btn-font-size-in-sm-screen);
+    border-width: var(--btn-border-width-in-sm-screen);
     border-radius: 2.5vw;
   }
 
@@ -255,5 +318,104 @@
   .first-section > footer > .advantage > p {
     margin: 1.5vw 0 8vw;
     font-size: 2.5rem;
+  }
+
+  /* ====[ STATISTICS SECTION ]==== */
+  .statistics-section {
+    grid-template-areas:
+      ". title ."
+      ". card-1 ."
+      ". card-2 ."
+      ". card-3 .";
+    grid-template-columns:
+      var(--R-L-page-padding)
+      1fr
+      var(--R-L-page-padding);
+    padding-block: 8vw;
+  }
+
+  .statistics-section
+    .statistic-card:nth-of-type(2)
+    .statistic-number
+    + p::after {
+    width: 3.58vw;
+    height: 3.58vw;
+  }
+
+  .statistics-section .statistic-card {
+    justify-self: center !important;
+    margin-top: 5vw;
+    padding-top: 1.5vw;
+    border-radius: 3.58vw;
+    height: 31.29vw;
+    width: 34.84vw;
+    font-size: 1.8rem;
+  }
+
+  .statistics-section .statistic-card .card-overlay {
+    width: 65%;
+    height: 90%;
+    border-radius: 3.58vw;
+  }
+
+  .statistics-section .statistic-img {
+    width: 10vw;
+    margin-bottom: 3.6vw;
+  }
+
+  .statistics-section .statistic-number {
+    font-size: 2rem;
+    margin-bottom: 3vw;
+  }
+
+  /* ====[ FAQ SECTION ]==== */
+  #faq-section {
+    padding: 0 0 8vw;
+  }
+
+  #faq-section .faq-img {
+    width: 70%;
+  }
+
+  #faq-section .faq-container {
+    font-size: 1.5rem;
+  }
+
+  #faq-section .faq-container > h2 {
+    font-size: 4rem;
+  }
+
+  #faq-section .faq-container > h2::after {
+    width: 9.42vw;
+    height: 9.42vw;
+  }
+
+  #faq-section .faq-container .faq > details {
+    padding: var(--btn-padding-in-sm-screen);
+    margin-bottom: 2vw;
+    font-size: 1.7rem;
+  }
+
+  #faq-section .faq-container .faq > details[open] > summary {
+    border-width: var(--btn-border-width-in-sm-screen);
+    padding-bottom: 2vw;
+    margin-bottom: 2vw;
+  }
+
+  #faq-section .faq-container .faq > details > summary::after {
+    border-width: var(--btn-border-width-in-sm-screen);
+    width: 1.5vw;
+    height: 1.5vw;
+    top: -0.5vw;
+  }
+
+  #faq-section .faq-container .faq > details > p {
+    line-height: 4vw;
+  }
+
+  #faq-section .faq-container > a::after {
+    border-width: 0.3vw;
+    width: 1vw;
+    height: 1vw;
   }
 }
