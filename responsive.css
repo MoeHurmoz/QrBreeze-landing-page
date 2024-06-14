@@ -1,4 +1,7 @@
 :root {
+  /* Common dimensions */
+  --main-footer-padding-in-common-screens: 8vw 0;
+
   /* Medium Screen Dimensions */
   --btn-padding-in-md-screen: 1.3vw 1.44vw;
   --btn-wide-padding-inline-in-md-screen: 3.5vw;
@@ -8,7 +11,6 @@
 
   /* Small Screen Dimensions */
   --main-header-padding-in-sm-screen: 2.9vw 0;
-  --main-footer-padding-in-sm-screen: 5.806vw 0 4.516vw;
 
   --btn-padding-in-sm-screen: 2.5vw 3vw;
   --btn-wide-padding-inline-in-sm-screen: 6vw;
@@ -58,6 +60,46 @@
 
   #main-header #navbar > a {
     font-size: 1.2rem;
+  }
+
+  /* ====[ MAIN FOOTER ]==== */
+  .main-footer {
+    grid-template-areas:
+      ". accounts ."
+      ". email ."
+      ". location .";
+    grid-template-columns:
+      var(--R-L-page-padding)
+      1fr
+      var(--R-L-page-padding);
+    grid-template-rows: initial;
+    justify-items: center;
+    text-align: center;
+    padding: var(--main-footer-padding-in-common-screens);
+    font-size: 2rem;
+  }
+
+  .accounts {
+    align-items: center;
+    font-size: 3rem;
+    padding: var(--main-footer-padding-in-common-screens);
+    padding-top: 0;
+  }
+
+  .accounts-container {
+    width: 50%;
+    padding: var(--main-footer-padding-in-common-screens);
+    padding-bottom: 0;
+  }
+
+  .location {
+    font-size: 1.88rem;
+  }
+
+  .email {
+    font-size: inherit;
+    padding: var(--main-footer-padding-in-common-screens);
+    padding-top: 0;
   }
 
   /* ====[ FIRST SECTION ]==== */
@@ -244,6 +286,15 @@
     border: none;
   }
 
+  /* ====[ MAIN FOOTER ]==== */
+  .main-footer {
+    font-size: 2.5rem;
+  }
+
+  .accounts {
+    font-size: 3.2rem;
+  }
+
   /* ====[ FIRST SECTION ]==== */
   .first-section > figure {
     padding: 7vw 0;
@@ -331,41 +382,47 @@
       var(--R-L-page-padding)
       1fr
       var(--R-L-page-padding);
-    padding-block: 8vw;
+    padding-block: 10vw;
+  }
+
+  .statistics-section > h2 {
+    font-size: 4rem;
+    margin-bottom: 0;
   }
 
   .statistics-section
     .statistic-card:nth-of-type(2)
     .statistic-number
     + p::after {
-    width: 3.58vw;
-    height: 3.58vw;
+    width: 5.58vw;
+    height: 5.58vw;
   }
 
   .statistics-section .statistic-card {
     justify-self: center !important;
-    margin-top: 5vw;
-    padding-top: 1.5vw;
-    border-radius: 3.58vw;
-    height: 31.29vw;
-    width: 34.84vw;
-    font-size: 1.8rem;
+    margin-top: 10vw;
+    padding-top: 2.5vw;
+    border-radius: 5.58vw;
+    height: 45.29vw;
+    width: 50.84vw;
+    font-size: 3rem;
   }
 
   .statistics-section .statistic-card .card-overlay {
     width: 65%;
     height: 90%;
-    border-radius: 3.58vw;
+    border-radius: 5.58vw;
+    filter: blur(6.226vw);
   }
 
   .statistics-section .statistic-img {
-    width: 10vw;
-    margin-bottom: 3.6vw;
+    width: 15vw;
+    margin-bottom: 4vw;
   }
 
   .statistics-section .statistic-number {
-    font-size: 2rem;
-    margin-bottom: 3vw;
+    font-size: 3rem;
+    margin-bottom: 4vw;
   }
 
   /* ====[ FAQ SECTION ]==== */

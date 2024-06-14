@@ -158,7 +158,7 @@ a {
   grid-area: email;
   display: flex;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: flex-end;
   font-weight: 700;
   font-size: 0.9rem;
 }
