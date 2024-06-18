@@ -1,68 +1,79 @@
-const removeRemovableTags = (className) => {
-  if (typeof className == "string") {
-    const removableTags = document.getElementsByClassName(className);
+// Function to remove one or more HTML elements at once using a class name
+const removeElements = (className) => {
+  if (typeof className === "string") {
+    const elements = document.getElementsByClassName(className);
 
-    while (removableTags.length > 0) {
-      removableTags[0].remove();
+    while (elements.length > 0) {
+      elements[0].remove();
     }
   }
 };
 
-const handleScreenSizeChange = () => {
+// Function to handle with <br /> tags in HTML that are not suitable for some screen sizes
+const handleBrTags = () => {
   const userScreenSize = window.innerWidth;
 
   // If the user's screen is medium size
   if (userScreenSize <= 1200 && userScreenSize > 766) {
     // Remove <br /> tags that are not suitable for medium screens
-    removeRemovableTags("md-screen");
+    removeElements("md-screen");
   }
   // Else if the user's screen is small size
   else if (userScreenSize <= 766) {
     // Remove <br /> tags that are not suitable for small screens
-    removeRemovableTags("removable-tag");
-
-    // Activate the hamburger button with the navigation bar
-    const mainHeader = document.getElementById("main-header"),
-      hamburgerBtn = document.getElementById("hamburger-btn"),
-      navbar = document.getElementById("navbar");
-
-    if (mainHeader && hamburgerBtn && navbar) {
-      // Function to open and close navigation bar when hamburger button is clicked
-      const toggleNavbar = (event) => {
-        event.stopPropagation();
-
-        if (!hamburgerBtn.classList.contains("active")) {
-          mainHeader.classList.add("active");
-          document.addEventListener("click", closeNavbar);
-        } else {
-          setTimeout(() => {
-            mainHeader.classList.remove("active");
-            document.removeEventListener("click", closeNavbar);
-          }, 500);
-        }
-
-        hamburgerBtn.classList.toggle("active");
-        navbar.classList.toggle("active");
-      };
-
-      // Function to close navigation bar when clicked anywhere outside navigation bar
-      const closeNavbar = (event) => {
-        if (!navbar.contains(event.target)) {
-          setTimeout(() => {
-            mainHeader.classList.remove("active");
-          }, 500);
-          hamburgerBtn.classList.remove("active");
-          navbar.classList.remove("active");
-          document.removeEventListener("click", closeNavbar);
-        }
-      };
-
-      hamburgerBtn.addEventListener("click", toggleNavbar);
-    }
+    removeElements("removable-tag");
   }
 };
 
-window.addEventListener("resize", handleScreenSizeChange);
+// Function to handle the hamburger button and navigation bar
+const handleHamburgerBtn = () => {
+  const mainHeader = document.getElementById("main-header"),
+    hamburgerBtn = document.getElementById("hamburger-btn"),
+    navbar = document.getElementById("navbar");
+
+  if (mainHeader && hamburgerBtn && navbar) {
+    // Function to open and close navigation bar when hamburger button is clicked
+    const toggleNavbar = (event) => {
+      event.stopPropagation();
+
+      const expanded = hamburgerBtn.getAttribute("aria-expanded") === "true";
+
+      if (!expanded) {
+        mainHeader.classList.add("active");
+        document.addEventListener("click", closeNavbar);
+      } else {
+        setTimeout(() => {
+          mainHeader.classList.remove("active");
+        }, 500);
+        document.removeEventListener("click", closeNavbar);
+      }
+
+      hamburgerBtn.classList.toggle("active");
+      hamburgerBtn.setAttribute("aria-expanded", !expanded);
+      navbar.classList.toggle("active");
+    };
+
+    // Function to close navigation bar when clicked anywhere outside navigation bar
+    const closeNavbar = (event) => {
+      if (!navbar.contains(event.target)) {
+        setTimeout(() => {
+          mainHeader.classList.remove("active");
+        }, 500);
+
+        hamburgerBtn.classList.remove("active");
+        hamburgerBtn.setAttribute("aria-expanded", "false");
+        navbar.classList.remove("active");
+        document.removeEventListener("click", closeNavbar);
+      }
+    };
+
+    // Remove existing event listener if any
+    hamburgerBtn.removeEventListener("click", toggleNavbar);
+
+    // Add the event listener
+    hamburgerBtn.addEventListener("click", toggleNavbar);
+  }
+};
 
 // Function to perform a writing effect on the element passed to it
 const writingEffect = (element, arrOfWords) => {
@@ -121,6 +132,9 @@ const variableText = document.getElementById("variable-text"),
   ];
 
 document.addEventListener("DOMContentLoaded", () => {
-  handleScreenSizeChange();
+  handleBrTags();
+  handleHamburgerBtn();
   writingEffect(variableText, words);
 });
+
+window.addEventListener("resize", handleBrTags);
