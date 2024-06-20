@@ -246,6 +246,69 @@
     font-size: 1.2rem;
   }
 
+  /* ====[ USE CASES SECTION ]==== */
+  #use-cases-section .use-case .img-container > img {
+    width: calc(60% + 5%);
+  }
+
+  #use-cases-section .use-case:nth-of-type(3) .img-container > img {
+    width: calc(55% + 5%);
+  }
+
+  #use-cases-section .use-case:nth-of-type(4) .img-container > img {
+    width: calc(50% + 5%);
+  }
+
+  #use-cases-section .use-case:nth-of-type(5) .img-container > img {
+    width: calc(51% + 5%);
+  }
+
+  #use-cases-section .use-case:nth-of-type(6) .img-container > img {
+    width: calc(67% + 5%);
+  }
+
+  #use-cases-section .use-case:nth-of-type(7) .img-container > img {
+    width: calc(90% + 5%);
+  }
+
+  #use-cases-section .use-case:nth-of-type(8) .img-container > img {
+    width: calc(65% + 5%);
+  }
+
+  #use-cases-section .use-case:nth-of-type(9) .img-container > img {
+    width: calc(80% + 5%);
+  }
+
+  #use-cases-section .use-case:nth-of-type(10) .img-container > img {
+    width: calc(53% + 5%);
+  }
+
+  #use-cases-section .use-case:nth-of-type(11) .img-container > img {
+    width: calc(80% + 5%);
+  }
+
+  #use-cases-section .use-case:nth-of-type(12) .img-container > img {
+    width: calc(55% + 5%);
+  }
+
+  #use-cases-section .use-case > figcaption {
+    font-size: 1.5rem;
+  }
+
+  #use-cases-section .use-case > figcaption > p {
+    margin-block: 1vw 2vw;
+  }
+
+  #use-cases-section .use-case > figcaption > ul > li {
+    margin-bottom: 0.5vw;
+    transform: translateX(6%);
+  }
+
+  #use-cases-section .use-case > figcaption > ul > li::before {
+    width: 2vw;
+    height: 2vw;
+  }
+
   /* ====[ FAQ SECTION ]==== */
   #faq-section {
     grid-template-areas: ". img-container ." ". faq-container .";
@@ -601,6 +664,79 @@
     width: 5vw;
     height: 5vw;
     transform: translate(-135%, -5%);
+  }
+
+  /* ====[ TRUSTED BY SECTION ]==== */
+  .trusted-by-section {
+    margin-bottom: 13vw;
+  }
+
+  .trusted-by-section > h2 {
+    margin-bottom: 3vw;
+  }
+
+  .trusted-by-section > h2::after {
+    width: 5.61vw;
+    height: 6.516vw;
+  }
+
+  .trusted-by-section .logos {
+    border-width: var(--btn-border-width-in-sm-screen);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .trusted-by-section .logos > img {
+    width: 100% !important;
+  }
+
+  /* ====[ USE CASES SECTION ]==== */
+  #use-cases-section {
+    padding-block: 8vw 0;
+  }
+
+  #use-cases-section h2,
+  #use-cases-section h3 {
+    font-size: 4rem;
+  }
+
+  #use-cases-section > h2 {
+    margin: 0;
+  }
+
+  #use-cases-section > h2::after {
+    width: 8.84vw;
+    height: 8.84vw;
+  }
+
+  #use-cases-section .use-case {
+    grid-template-areas: ". img-container ." ". figcaption .";
+    grid-template-columns:
+      var(--R-L-page-padding)
+      1fr
+      var(--R-L-page-padding);
+    justify-items: flex-start;
+    margin-bottom: 10vw;
+  }
+
+  .img-in-right {
+    grid-template-areas: ". img-container ." ". figcaption ." !important;
+  }
+
+  #use-cases-section .use-case > figcaption {
+    font-size: 2.5rem;
+  }
+
+  #use-cases-section .use-case > figcaption > p {
+    margin-block: 2vw 3vw;
+  }
+
+  #use-cases-section .use-case > figcaption > ul > li {
+    margin-bottom: 1vw;
+  }
+
+  #use-cases-section .use-case > figcaption > ul > li::before {
+    width: 4vw;
+    height: 4vw;
   }
 
   /* ====[ STATISTICS SECTION ]==== */
