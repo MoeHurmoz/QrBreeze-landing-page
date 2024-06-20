@@ -144,10 +144,15 @@ a {
 }
 
 .accounts-container {
-  color: var(--footer-icons-color);
   width: 12.26vw;
   display: flex;
   justify-content: space-between;
+}
+
+.accounts-container svg {
+  fill: var(--footer-icons-color);
+  width: 1.4rem;
+  height: 1.4rem;
 }
 
 .location {

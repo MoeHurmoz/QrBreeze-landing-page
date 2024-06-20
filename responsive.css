@@ -92,6 +92,11 @@
     padding-bottom: 0;
   }
 
+  .accounts-container svg {
+    width: 3rem;
+    height: 3rem;
+  }
+
   .location {
     font-size: 1.88rem;
   }
@@ -346,7 +351,9 @@
   #main-header #hamburger-btn {
     grid-area: hamburger-btn;
     justify-self: flex-end;
-    font-size: 4rem;
+    width: 4rem;
+    height: 4rem;
+    fill: var(--second-color);
     display: flex;
     cursor: pointer;
     transition: transform 500ms;
@@ -380,6 +387,7 @@
 
   #main-header #navbar > a {
     font-size: var(--btn-font-size-in-sm-screen);
+    width: 100%;
   }
 
   #main-header #navbar .btn-container > a {
@@ -398,6 +406,11 @@
 
   .accounts {
     font-size: 3.2rem;
+  }
+
+  .accounts-container svg {
+    width: 3.2rem;
+    height: 3.2rem;
   }
 
   /* ====[ FIRST SECTION ]==== */
