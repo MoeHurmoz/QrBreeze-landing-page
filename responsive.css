@@ -321,7 +321,8 @@
 
   #faq-section .faq-img {
     margin-top: initial;
-    width: 55%;
+    width: 65%;
+    margin-bottom: 5vw;
   }
 
   #faq-section .faq-container {
@@ -334,6 +335,7 @@
   }
 
   #faq-section .faq-container .faq > details {
+    line-height: 3vw;
     padding: 2vw 2.5vw;
     margin-bottom: 1.3vw;
   }
@@ -344,19 +346,10 @@
     margin-bottom: 1.3vw;
   }
 
-  #faq-section .faq-container .faq > details > summary::after {
+  #faq-section .faq-container .faq > details > summary .arrow {
     border-width: var(--btn-border-width-in-md-screen);
-    width: 1.3vw;
-    height: 1.3vw;
-    top: -0.3vw;
-  }
-
-  #faq-section .faq-container .faq > details[open] > summary::after {
-    top: 0.5vw;
-  }
-
-  #faq-section .faq-container .faq > details > p {
-    line-height: 3vw;
+    width: 1.8vw;
+    height: 1.8vw;
   }
 
   #faq-section .faq-container > a::after {
@@ -814,7 +807,8 @@
   }
 
   #faq-section .faq-img {
-    width: 70%;
+    width: 80%;
+    margin-bottom: 8vw;
   }
 
   #faq-section .faq-container {
@@ -831,26 +825,26 @@
   }
 
   #faq-section .faq-container .faq > details {
-    padding: var(--btn-padding-in-sm-screen);
-    margin-bottom: 2vw;
-    font-size: 1.7rem;
+    padding: 3vw 3.5vw;
+    margin-bottom: 3vw;
+    font-size: 2rem;
+    line-height: 5vw;
   }
 
   #faq-section .faq-container .faq > details[open] > summary {
     border-width: var(--btn-border-width-in-sm-screen);
-    padding-bottom: 2vw;
-    margin-bottom: 2vw;
+    padding-bottom: 3vw;
+    margin-bottom: 2.3vw;
   }
 
-  #faq-section .faq-container .faq > details > summary::after {
+  #faq-section .faq-container .faq > details > summary {
+    grid-template-columns: 4fr 1fr;
+  }
+
+  #faq-section .faq-container .faq > details > summary .arrow {
     border-width: var(--btn-border-width-in-sm-screen);
-    width: 1.5vw;
-    height: 1.5vw;
-    top: -0.5vw;
-  }
-
-  #faq-section .faq-container .faq > details > p {
-    line-height: 4vw;
+    width: 3vw;
+    height: 3vw;
   }
 
   #faq-section .faq-container > a::after {

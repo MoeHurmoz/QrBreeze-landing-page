@@ -715,12 +715,12 @@ a {
 
 #faq-section .img-container {
   grid-area: img-container;
-  align-items: center;
+  align-items: flex-start;
 }
 
 #faq-section .faq-img {
   width: 100%;
-  margin-top: 1.5vw;
+  margin-top: 11vw;
 }
 
 #faq-section .faq-container {
@@ -758,9 +758,11 @@ a {
 }
 
 #faq-section .faq-container .faq > details > summary {
+  display: grid;
+  grid-template-columns: 4.6fr 0.4fr;
+  align-items: center;
   list-style: none;
   cursor: pointer;
-  position: relative;
   user-select: none;
 }
 
@@ -770,22 +772,19 @@ a {
   margin-bottom: 0.64516vw;
 }
 
-#faq-section .faq-container .faq > details > summary::after {
-  content: "";
+#faq-section .faq-container .faq > details > summary .arrow {
+  justify-self: flex-end;
   width: 1.03vw;
   height: 1.03vw;
   border: var(--btn-border-width) solid;
   border-top: none;
   border-right: none;
-  transform: rotate(315deg);
-  position: absolute;
-  right: 0.64516vw;
+  transform: rotate(315deg) translateY(-45%);
   transition: 300ms linear;
 }
 
-#faq-section .faq-container .faq > details[open] > summary::after {
-  transform: rotate(135deg);
-  top: 0.71vw;
+#faq-section .faq-container .faq > details[open] > summary .arrow {
+  transform: rotate(135deg) translateX(45%);
 }
 
 #faq-section .faq-container > a {
