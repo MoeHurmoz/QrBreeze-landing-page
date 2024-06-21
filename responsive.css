@@ -356,7 +356,7 @@
     border-width: 0.2vw;
     width: 0.8vw;
     height: 0.8vw;
-    top: 0.8vw;
+    top: 0.9vw;
   }
 }
 
@@ -812,7 +812,7 @@
   }
 
   #faq-section .faq-container {
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
 
   #faq-section .faq-container > h2 {
@@ -849,7 +849,8 @@
 
   #faq-section .faq-container > a::after {
     border-width: 0.3vw;
-    width: 1vw;
-    height: 1vw;
+    width: 1.5vw;
+    height: 1.5vw;
+    top: 1.2vw;
   }
 }
