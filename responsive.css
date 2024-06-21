@@ -316,7 +316,7 @@
       var(--R-L-page-padding)
       1fr
       var(--R-L-page-padding);
-    padding: 0 0 5.806vw;
+    padding: 5.806vw 0;
   }
 
   #faq-section .faq-img {
@@ -700,7 +700,7 @@
   }
 
   #use-cases-section > h2 {
-    margin: 0;
+    margin-bottom: 3vw;
   }
 
   #use-cases-section > h2::after {
@@ -720,6 +720,21 @@
 
   .img-in-right {
     grid-template-areas: ". img-container ." ". figcaption ." !important;
+  }
+
+  #use-cases-section .use-case .img-container > img {
+    width: 60% !important;
+  }
+
+  #use-cases-section .use-case:nth-of-type(6) .img-container > img,
+  #use-cases-section .use-case:nth-of-type(7) .img-container > img {
+    width: 80% !important;
+  }
+
+  #use-cases-section .use-case:nth-of-type(8) .img-container > img,
+  #use-cases-section .use-case:nth-of-type(9) .img-container > img,
+  #use-cases-section .use-case:nth-of-type(11) .img-container > img {
+    width: 70% !important;
   }
 
   #use-cases-section .use-case > figcaption {
@@ -795,7 +810,7 @@
 
   /* ====[ FAQ SECTION ]==== */
   #faq-section {
-    padding: 0 0 8vw;
+    padding: 8vw 0;
   }
 
   #faq-section .faq-img {

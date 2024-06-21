@@ -533,7 +533,7 @@ a {
     var(--R-L-page-padding);
   align-items: center;
   justify-items: center;
-  margin-bottom: 2.26vw;
+  margin-bottom: 4.5vw;
 }
 
 .img-in-right {
@@ -715,7 +715,7 @@ a {
 
 #faq-section .img-container {
   grid-area: img-container;
-  align-items: flex-start;
+  align-items: center;
 }
 
 #faq-section .faq-img {
