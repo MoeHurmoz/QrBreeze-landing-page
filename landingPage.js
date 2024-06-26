@@ -1,28 +1,45 @@
 // Function to remove one or more HTML elements at once using a class name
 const removeElements = (className) => {
   if (typeof className === "string") {
-    const elements = document.getElementsByClassName(className);
-
-    while (elements.length > 0) {
-      elements[0].remove();
-    }
+    const elements = [...document.getElementsByClassName(className)];
+    for (const element of elements) element.remove();
+  } else {
+    console.error("Expected a string as className");
   }
 };
 
-// Function to handle with <br /> tags in HTML that are not suitable for some screen sizes
-const handleBrTags = () => {
-  const userScreenSize = window.innerWidth;
+// Function that makes elements selected in the first parameter either focusable using keyboard or unfocusable depending on the value of the second parameter
+const handleElementsFocus = (cssSelector, booleanValue) => {
+  if (typeof cssSelector === "string" && typeof booleanValue === "boolean") {
+    const elements = document.querySelectorAll(cssSelector);
+
+    for (const element of elements) {
+      element.setAttribute("tabindex", booleanValue ? "0" : "-1");
+    }
+  } else {
+    console.error(
+      "Invalid arguments: First parameter should be a string and second parameter should be a boolean."
+    );
+  }
+};
+
+// Function that makes the page suitable for different screen sizes
+const handleScreenSize = () => {
+  const userScreenWidth = window.innerWidth;
 
   // If the user's screen is medium size
-  if (userScreenSize <= 1200 && userScreenSize > 766) {
+  if (userScreenWidth <= 1200 && userScreenWidth > 766) {
     // Remove <br /> tags that are not suitable for medium screens
     removeElements("md-screen");
   }
   // Else if the user's screen is small size
-  else if (userScreenSize <= 766) {
+  else if (userScreenWidth <= 766) {
     // Remove <br /> tags that are not suitable for small screens
     removeElements("removable-tag");
   }
+
+  // if the user's screen is small size, make the navbar links unfocusable, otherwise they will be focusable
+  handleElementsFocus("#navbar a", userScreenWidth > 766);
 };
 
 // Function to handle the hamburger button and navigation bar
@@ -42,36 +59,59 @@ const handleHamburgerBtn = () => {
         mainHeader.classList.add("active");
         document.addEventListener("click", closeNavbar);
       } else {
-        setTimeout(() => {
-          mainHeader.classList.remove("active");
-        }, 500);
+        setTimeout(() => mainHeader.classList.remove("active"), 500);
         document.removeEventListener("click", closeNavbar);
       }
 
       hamburgerBtn.classList.toggle("active");
       hamburgerBtn.setAttribute("aria-expanded", !expanded);
       navbar.classList.toggle("active");
+      handleElementsFocus("#navbar a", !expanded);
     };
 
     // Function to close navigation bar when clicked anywhere outside navigation bar
     const closeNavbar = (event) => {
-      if (!navbar.contains(event.target)) {
-        setTimeout(() => {
-          mainHeader.classList.remove("active");
-        }, 500);
-
+      const removals = () => {
+        setTimeout(() => mainHeader.classList.remove("active"), 500);
         hamburgerBtn.classList.remove("active");
         hamburgerBtn.setAttribute("aria-expanded", "false");
         navbar.classList.remove("active");
         document.removeEventListener("click", closeNavbar);
+      };
+
+      if (event && !navbar.contains(event.target)) {
+        removals();
+        handleElementsFocus("#navbar a", false);
+      } else if (!event) {
+        removals();
       }
     };
 
-    // Remove existing event listener if any
-    hamburgerBtn.removeEventListener("click", toggleNavbar);
-
-    // Add the event listener
+    // Add the events listener
     hamburgerBtn.addEventListener("click", toggleNavbar);
+    hamburgerBtn.addEventListener("keydown", (event) => {
+      if (event.code === "Enter" || event.code === "Space") {
+        event.preventDefault();
+        toggleNavbar(event);
+      }
+    });
+
+    const navbarLinks = [...navbar.getElementsByTagName("a")];
+    for (const link of navbarLinks) {
+      link.addEventListener("click", () => {
+        closeNavbar();
+        handleElementsFocus("#navbar a", window.innerWidth > 766);
+      });
+    }
+
+    window.addEventListener(
+      "resize",
+      () => {
+        closeNavbar();
+        handleScreenSize();
+      },
+      { passive: true }
+    );
   }
 };
 
@@ -90,7 +130,7 @@ const writingEffect = (element, arrOfWords) => {
       }
 
       charIndex++;
-      element.innerHTML = currentWord.substring(0, charIndex);
+      element.textContent = currentWord.substring(0, charIndex);
       setTimeout(typeWord, 50);
     };
 
@@ -104,7 +144,7 @@ const writingEffect = (element, arrOfWords) => {
       }
 
       charIndex--;
-      element.innerHTML = currentWord.substring(0, charIndex);
+      element.textContent = currentWord.substring(0, charIndex);
       setTimeout(eraseWord, 50);
     };
 
@@ -132,9 +172,7 @@ const variableText = document.getElementById("variable-text"),
   ];
 
 document.addEventListener("DOMContentLoaded", () => {
-  handleBrTags();
+  handleScreenSize();
   handleHamburgerBtn();
   writingEffect(variableText, words);
 });
-
-window.addEventListener("resize", handleBrTags);
