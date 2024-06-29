@@ -18,7 +18,7 @@ The landing page is designed with modern web development practices and ensures r
 - **CSS3**: For styling the page, including Flexbox and Grid for layout.
 - **JavaScript**: For interactive elements and functionality.
 
-## Live Server
+## Live Demo Server
 
 You can preview the landing page at the following link:
 https://qrbreeze.netlify.app/landingpage
