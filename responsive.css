@@ -108,7 +108,7 @@
   }
 
   /* ====[ FIRST SECTION ]==== */
-  .first-section > figure {
+  .home-section > figure {
     grid-template-areas: ". img-container ." ". figcaption .";
     grid-template-columns:
       var(--R-L-page-padding)
@@ -117,26 +117,26 @@
     grid-template-rows: 1fr auto;
   }
 
-  .first-section > figure > figcaption {
+  .home-section > figure > figcaption {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     align-items: center;
   }
 
-  .first-section > figure > figcaption p {
+  .home-section > figure > figcaption p {
     font-size: 1.4rem;
     margin: 3.226vw 0;
   }
 
-  .first-section > footer > h2 {
+  .home-section > footer > h2 {
     font-size: 1.7rem;
   }
 
-  .first-section > footer > .advantage > img {
+  .home-section > footer > .advantage > img {
     width: 15vw !important;
   }
 
-  .first-section > footer > .advantage > p {
+  .home-section > footer > .advantage > p {
     margin-top: 1vw;
     font-size: 1.2rem;
   }
@@ -470,29 +470,25 @@
   }
 
   /* ====[ FIRST SECTION ]==== */
-  .first-section > figure {
+  .home-section > figure {
     padding: 7vw 0;
   }
 
-  .first-section > figure > figcaption {
+  .home-section > figure > figcaption {
     display: flex;
     flex-direction: column;
   }
 
-  .first-section > figure > figcaption > h1 {
+  .home-section > figure > figcaption > h1 {
     font-size: 4rem;
   }
 
-  .first-section > figure > figcaption p {
+  .home-section > figure > figcaption p {
     font-size: 2.95rem;
     margin: 4vw 0 5vw;
   }
 
-  .first-section
-    > figure
-    > figcaption
-    .btn-container
-    > a:nth-of-type(2)::after {
+  .home-section > figure > figcaption .btn-container > a:nth-of-type(2)::after {
     width: 9.516vw;
     height: 9.516vw;
     transform: rotate(-55deg) translate(-10%, -15%);
@@ -517,7 +513,7 @@
     }
   }
 
-  .first-section > footer {
+  .home-section > footer {
     grid-template-areas:
       ". h2 ."
       ". a1 ."
@@ -531,16 +527,16 @@
     padding: 0;
   }
 
-  .first-section > footer > h2 {
+  .home-section > footer > h2 {
     font-size: 3rem;
     margin: 8vw 0;
   }
 
-  .first-section > footer > .advantage > img {
+  .home-section > footer > .advantage > img {
     width: 26vw !important;
   }
 
-  .first-section > footer > .advantage > p {
+  .home-section > footer > .advantage > p {
     margin: 1.5vw 0 8vw;
     font-size: 2.5rem;
   }
