@@ -42,18 +42,18 @@ const handleScreenSize = () => {
   handleElementsFocus("#navbar a", userScreenWidth > 766);
 };
 
-// Function to handle the hamburger button and navigation bar
-const handleHamburgerBtn = () => {
+// Function to handle the menu button and navigation bar
+const handleMenuBtn = () => {
   const mainHeader = document.getElementById("main-header"),
-    hamburgerBtn = document.getElementById("hamburger-btn"),
+    menuBtn = document.getElementById("menu-btn"),
     navbar = document.getElementById("navbar");
 
-  if (mainHeader && hamburgerBtn && navbar) {
-    // Function to open and close navigation bar when hamburger button is clicked
+  if (mainHeader && menuBtn && navbar) {
+    // Function to open and close navigation bar when menu button is clicked
     const toggleNavbar = (event) => {
       event.stopPropagation();
 
-      const expanded = hamburgerBtn.getAttribute("aria-expanded") === "true";
+      const expanded = menuBtn.getAttribute("aria-expanded") === "true";
 
       if (!expanded) {
         mainHeader.classList.add("active");
@@ -63,8 +63,8 @@ const handleHamburgerBtn = () => {
         document.removeEventListener("click", closeNavbar);
       }
 
-      hamburgerBtn.classList.toggle("active");
-      hamburgerBtn.setAttribute("aria-expanded", !expanded);
+      menuBtn.classList.toggle("active");
+      menuBtn.setAttribute("aria-expanded", !expanded);
       navbar.classList.toggle("active");
       handleElementsFocus("#navbar a", !expanded);
     };
@@ -73,8 +73,8 @@ const handleHamburgerBtn = () => {
     const closeNavbar = (event) => {
       const removals = () => {
         setTimeout(() => mainHeader.classList.remove("active"), 500);
-        hamburgerBtn.classList.remove("active");
-        hamburgerBtn.setAttribute("aria-expanded", "false");
+        menuBtn.classList.remove("active");
+        menuBtn.setAttribute("aria-expanded", "false");
         navbar.classList.remove("active");
         document.removeEventListener("click", closeNavbar);
       };
@@ -88,8 +88,8 @@ const handleHamburgerBtn = () => {
     };
 
     // Add the events listener
-    hamburgerBtn.addEventListener("click", toggleNavbar);
-    hamburgerBtn.addEventListener("keydown", (event) => {
+    menuBtn.addEventListener("click", toggleNavbar);
+    menuBtn.addEventListener("keydown", (event) => {
       if (event.code === "Enter" || event.code === "Space") {
         event.preventDefault();
         toggleNavbar(event);
@@ -173,6 +173,6 @@ const variableText = document.getElementById("variable-text"),
 
 document.addEventListener("DOMContentLoaded", () => {
   handleScreenSize();
-  handleHamburgerBtn();
+  handleMenuBtn();
   writingEffect(variableText, words);
 });

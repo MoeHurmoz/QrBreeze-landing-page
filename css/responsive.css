@@ -381,7 +381,7 @@
   /* ====[ MAIN HEADER ]==== */
   #main-header {
     padding: var(--main-header-padding-in-sm-screen);
-    grid-template-areas: ". logo hamburger-btn .";
+    grid-template-areas: ". logo menu-btn .";
     position: relative;
     overflow: hidden;
   }
@@ -404,9 +404,12 @@
     letter-spacing: 0.1rem;
   }
 
-  #main-header #hamburger-btn {
-    grid-area: hamburger-btn;
+  #main-header #menu-btn {
+    grid-area: menu-btn;
     justify-self: flex-end;
+    appearance: none;
+    outline: none;
+    border: none;
     width: 4rem;
     height: 4rem;
     fill: var(--second-color);
@@ -416,7 +419,7 @@
     transform: rotate(0);
   }
 
-  #main-header #hamburger-btn.active {
+  #main-header #menu-btn.active {
     transform: rotate(180deg);
   }
 

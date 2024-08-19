@@ -4,6 +4,7 @@
 :root {
   font-size: 1.613vw;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 
   /* Colors */
   --first-color: #fff;
@@ -106,7 +107,7 @@ a {
   letter-spacing: 0.07rem;
 }
 
-#main-header > #hamburger-btn {
+#main-header > #menu-btn {
   display: none;
 }
 
@@ -188,7 +189,7 @@ a {
 
 .home-section > figure .img-container::after {
   content: "";
-  background: url("./assets/icons/magic-stars.png") no-repeat;
+  background: url("../assets/icons/magic-stars.png") no-repeat;
   background-size: contain;
   position: absolute;
   width: 15.5%;
@@ -222,7 +223,7 @@ a {
 
 .home-section > figure > figcaption .btn-container > a:nth-of-type(2)::after {
   content: "";
-  background: url("./assets/icons/click-here.png") no-repeat;
+  background: url("../assets/icons/click-here.png") no-repeat;
   background-size: contain;
   position: absolute;
   width: 4.516vw;
@@ -423,7 +424,7 @@ a {
 }
 #qr-types-section > footer .left-section > h2::after {
   content: "";
-  background: url("./assets/icons/magic-stars-2.png") no-repeat;
+  background: url("../assets/icons/magic-stars-2.png") no-repeat;
   background-size: contain;
   width: 5.48vw;
   height: 5.48vw;
@@ -461,7 +462,7 @@ a {
 
 #qr-types-section > footer .right-section > p::before {
   content: "";
-  background: url("./assets/icons/star.png") no-repeat;
+  background: url("../assets/icons/star.png") no-repeat;
   background-size: contain;
   width: 2.9vw;
   height: 2.9vw;
@@ -482,7 +483,7 @@ a {
 
 .trusted-by-section > h2::after {
   content: "";
-  background: url("./assets/icons/trusted.png") no-repeat;
+  background: url("../assets/icons/trusted.png") no-repeat;
   background-size: contain;
   width: 3.61vw;
   height: 4.516vw;
@@ -518,7 +519,7 @@ a {
 
 #use-cases-section > h2::after {
   content: "";
-  background: url("./assets/icons/i.png") no-repeat;
+  background: url("../assets/icons/i.png") no-repeat;
   background-size: contain;
   width: 6.84vw;
   height: 6.84vw;
@@ -612,7 +613,7 @@ a {
 
 #use-cases-section .use-case > figcaption > ul > li::before {
   content: "";
-  background: url("./assets/icons/square-check.png") no-repeat;
+  background: url("../assets/icons/square-check.png") no-repeat;
   background-size: contain;
   position: absolute;
   width: 1.81vw;
@@ -655,7 +656,7 @@ a {
   .statistic-number
   + p::after {
   content: "";
-  background: url("./assets/icons/crown.png") no-repeat;
+  background: url("../assets/icons/crown.png") no-repeat;
   background-size: contain;
   width: 2.58vw;
   height: 2.58vw;
@@ -737,7 +738,7 @@ a {
 
 #faq-section .faq-container > h2::after {
   content: "";
-  background: url("./assets/icons/question.png") no-repeat;
+  background: url("../assets/icons/question.png") no-repeat;
   background-size: contain;
   width: 7.42vw;
   height: 7.42vw;
