@@ -1,45 +1,44 @@
 // Function to remove one or more HTML elements at once using a class name
 const removeElements = (className) => {
-  if (typeof className === "string") {
-    const elements = [...document.getElementsByClassName(className)];
-    for (const element of elements) element.remove();
-  } else {
-    console.error("Expected a string as className");
+  if (typeof className !== "string") {
+    throw new Error("Expected a string as className");
   }
+
+  const elements = [...document.getElementsByClassName(className)];
+  for (const element of elements) element.remove();
 };
 
 // Function that makes elements selected in the first parameter either focusable using keyboard or unfocusable depending on the value of the second parameter
-const handleElementsFocus = (cssSelector, booleanValue) => {
-  if (typeof cssSelector === "string" && typeof booleanValue === "boolean") {
-    const elements = document.querySelectorAll(cssSelector);
-
-    for (const element of elements) {
-      element.setAttribute("tabindex", booleanValue ? "0" : "-1");
-    }
-  } else {
-    console.error(
+const handleElementsFocus = (cssSelector, focusIt = false) => {
+  if (typeof cssSelector !== "string" || typeof focusIt !== "boolean") {
+    throw new Error(
       "Invalid arguments: First parameter should be a string and second parameter should be a boolean."
     );
+  }
+
+  const elements = document.querySelectorAll(cssSelector);
+  for (const element of elements) {
+    element.setAttribute("tabindex", focusIt ? "0" : "-1");
   }
 };
 
 // Function that makes the page suitable for different screen sizes
 const handleScreenSize = () => {
-  const userScreenWidth = window.innerWidth;
+  const screenIsMedium = window.matchMedia(
+      "(max-width: 1200px) and (min-width: 767px)"
+    ).matches,
+    screenIsSmall = window.matchMedia("(max-width: 767px)").matches;
 
-  // If the user's screen is medium size
-  if (userScreenWidth <= 1200 && userScreenWidth > 766) {
+  if (screenIsMedium) {
     // Remove <br /> tags that are not suitable for medium screens
-    removeElements("md-screen");
-  }
-  // Else if the user's screen is small size
-  else if (userScreenWidth <= 766) {
+    removeElements("removed-in-md-screen");
+  } else if (screenIsSmall) {
     // Remove <br /> tags that are not suitable for small screens
-    removeElements("removable-tag");
+    removeElements("removed-in-sm-screen");
   }
 
-  // if the user's screen is small size, make the navbar links unfocusable, otherwise they will be focusable
-  handleElementsFocus("#navbar a", userScreenWidth > 766);
+  // Handle navbar link focusability based on screen size
+  handleElementsFocus("#navbar a", !screenIsSmall);
 };
 
 // Function to handle the menu button and navigation bar
@@ -63,8 +62,8 @@ const handleMenuBtn = () => {
         document.removeEventListener("click", closeNavbar);
       }
 
-      menuBtn.classList.toggle("active");
       menuBtn.setAttribute("aria-expanded", !expanded);
+      menuBtn.classList.toggle("active");
       navbar.classList.toggle("active");
       handleElementsFocus("#navbar a", !expanded);
     };
@@ -88,70 +87,77 @@ const handleMenuBtn = () => {
     };
 
     // Add the events listener
-    menuBtn.addEventListener("click", toggleNavbar);
-    menuBtn.addEventListener("keydown", (event) => {
+    menuBtn.onclick = toggleNavbar;
+    menuBtn.onkeydown = (event) => {
       if (event.code === "Enter" || event.code === "Space") {
         event.preventDefault();
         toggleNavbar(event);
       }
-    });
+    };
 
     const navbarLinks = [...navbar.getElementsByTagName("a")];
     for (const link of navbarLinks) {
-      link.addEventListener("click", () => {
+      link.onclick = () => {
         closeNavbar();
         handleElementsFocus("#navbar a", window.innerWidth > 766);
-      });
+      };
     }
 
-    window.addEventListener(
-      "resize",
-      () => {
+    // Using the Debounce technique with the screen resize event
+    let timeoutId;
+    window.onresize = () => {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
         closeNavbar();
         handleScreenSize();
-      },
-      { passive: true }
-    );
+      }, 300);
+    };
   }
 };
 
 // Function to perform a writing effect on the element passed to it
-const writingEffect = (element, arrOfWords) => {
-  if (element instanceof HTMLElement && Array.isArray(arrOfWords)) {
-    let index = 0,
-      currentWord = arrOfWords[index],
-      charIndex = 0;
-
-    // Function to type the current word
-    const typeWord = () => {
-      if (charIndex >= currentWord.length) {
-        setTimeout(eraseWord, 600); // Wait before starting to erase the word
-        return;
-      }
-
-      charIndex++;
-      element.textContent = currentWord.substring(0, charIndex);
-      setTimeout(typeWord, 50);
-    };
-
-    // Function to erase current word and move to the next word
-    const eraseWord = () => {
-      if (charIndex <= 0) {
-        index = (index + 1) % arrOfWords.length;
-        currentWord = arrOfWords[index];
-        typeWord();
-        return;
-      }
-
-      charIndex--;
-      element.textContent = currentWord.substring(0, charIndex);
-      setTimeout(eraseWord, 50);
-    };
-
-    typeWord();
-  } else {
+const writingEffect = (
+  element,
+  arrOfWords,
+  typingSpeed = 50, // Default typing speed per character (in ms)
+  erasingSpeed = 50, // Default erasing speed per character (in ms)
+  delayBetweenWords = 600 // Default delay before word erasing starts (in ms)
+) => {
+  if (!(element instanceof HTMLElement) || !Array.isArray(arrOfWords)) {
     throw new Error("There is an error in the element or array.");
   }
+
+  let index = 0,
+    currentWord = arrOfWords[index],
+    charIndex = 0;
+
+  // Function to type the current word
+  const typeWord = () => {
+    if (charIndex >= currentWord.length) {
+      setTimeout(eraseWord, delayBetweenWords); // Wait before starting to erase the word
+      return;
+    }
+
+    charIndex++;
+    element.textContent = currentWord.substring(0, charIndex);
+    setTimeout(typeWord, typingSpeed); // Adjust the speed of typing
+  };
+
+  // Function to erase the current word and move to the next word
+  const eraseWord = () => {
+    if (charIndex <= 0) {
+      index = (index + 1) % arrOfWords.length;
+      currentWord = arrOfWords[index];
+      typeWord();
+      return;
+    }
+
+    charIndex--;
+    element.textContent = currentWord.substring(0, charIndex);
+    setTimeout(eraseWord, erasingSpeed); // Adjust the speed of erasing
+  };
+
+  typeWord();
 };
 
 const variableText = document.getElementById("variable-text"),
@@ -171,6 +177,7 @@ const variableText = document.getElementById("variable-text"),
     "More...",
   ];
 
+// From here the application starts
 document.addEventListener("DOMContentLoaded", () => {
   handleScreenSize();
   handleMenuBtn();
