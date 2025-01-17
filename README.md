@@ -2,8 +2,8 @@
 
 ## Overview
 
-This repository contains the source code for a landing page designed for QrBreeze, a service that offers different types of QR codes to users.
-The landing page is designed with modern web development practices and ensures responsiveness and accessibility.
+This repository contains the source code for a landing page developed for QrBreeze, a service that provides various types of QR codes to users.
+The landing page is built using modern web development practices and ensures both responsiveness and accessibility.
 
 ## Features
 
